@@ -107,6 +107,9 @@ serves: 6
   --signal:#2B5D6E;
   --rule:#C7CDC1;
   --shell:min(68rem,100% - 2.5rem);
+  --rail-indent:1.5rem;
+  --rail-time-w:5.25rem;
+  --rail-gap:1.75rem;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -158,14 +161,17 @@ body{
   letter-spacing:0.16em;text-transform:uppercase;color:var(--forest);
   margin:0 0 1.5rem;
 }
-.rail{list-style:none;margin:0;padding-left:1.5rem;position:relative}
+.plan h2{padding-left:var(--rail-indent)}
+.rail{list-style:none;margin:0;padding-left:var(--rail-indent);position:relative}
 .rail::before{
-  content:"";position:absolute;left:5.25rem;top:0.55rem;bottom:0.55rem;
+  content:"";position:absolute;
+  left:calc(var(--rail-indent) + var(--rail-time-w) + (var(--rail-gap) / 2) - 1px);
+  top:0.55rem;bottom:0.55rem;
   width:2px;background:var(--rule);
 }
 .rail li{
   position:relative;display:grid;
-  grid-template-columns:5.25rem 1fr;gap:0 1.75rem;
+  grid-template-columns:var(--rail-time-w) 1fr;gap:0 var(--rail-gap);
   padding-bottom:1.5rem;
 }
 .rail li:last-child{padding-bottom:0}
@@ -180,7 +186,8 @@ body{
 }
 .rail .what span{display:block;color:var(--ink-soft);font-size:0.9375rem;margin-top:0.15rem}
 .rail li::after{
-  content:"";position:absolute;left:calc(5.25rem - 4px);top:0.5rem;
+  content:"";position:absolute;
+  left:calc(var(--rail-time-w) + (var(--rail-gap) / 2) - 5px);top:0.5rem;
   width:10px;height:10px;border-radius:50%;
   background:var(--paper);border:2px solid var(--forest);
 }
