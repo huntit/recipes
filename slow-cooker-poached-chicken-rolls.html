@@ -14,12 +14,18 @@ serves: 6
 <title>Slow Cooker Poached Chicken Rolls</title>
 <meta name="description" content="Gently poached chicken thighs shredded into a lemony mayo dressing with celery and spring onion. Made entirely the day before and served cool, with a low-sodium portion split off before seasoning.">
 
+<meta property="og:type" content="article">
+<meta property="og:title" content="Slow Cooker Poached Chicken Rolls">
+<meta property="og:description" content="Gently poached chicken thighs shredded into a lemony mayo dressing with celery and spring onion. Made entirely the day before and served cool, with a low-sodium portion split off before seasoning.">
+<meta property="og:image" content="https://huntit.github.io/recipes/slow-cooker-poached-chicken-rolls.jpg">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Recipe",
   "name": "Slow Cooker Poached Chicken Rolls",
   "description": "Gently poached chicken thighs shredded into a lemony mayonnaise dressing with celery and spring onion. Made entirely the day before and served cool, so it can sit on the table through a long lunch. The chicken poaches unsalted so a low-sodium portion can be split off before seasoning.",
+  "image": "https://huntit.github.io/recipes/slow-cooker-poached-chicken-rolls.jpg",
   "recipeCategory": "Main",
   "recipeCuisine": "Australian",
   "keywords": "slow cooker, chicken, make ahead, cold lunch, low sodium option, bread rolls, crowd feeding",
@@ -104,6 +110,16 @@ body{
   font:400 1.0625rem/1.65 "Karla",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 .shell{width:var(--shell);margin-inline:auto}
+
+.hero{margin:2rem 0 0;position:relative}
+.hero img{display:block;width:100%;height:auto;max-height:30rem;object-fit:cover}
+.hero figcaption{
+  position:absolute;right:0.75rem;bottom:0.6rem;
+  font:500 0.6875rem/1 "JetBrains Mono",monospace;
+  color:#F7F8F4;background:rgba(25,30,26,0.55);
+  padding:0.3rem 0.55rem;border-radius:3px;
+}
+.hero figcaption a{color:inherit}
 
 .masthead{padding:3.5rem 0 2rem}
 .eyebrow{
@@ -249,6 +265,7 @@ footer{
 
 @media print{
   body{background:#fff}
+  .hero{display:none}
   .rail li.away::after{background:#000}
   .kit{position:static}
   .cook{grid-template-columns:16rem 1fr}
@@ -257,6 +274,11 @@ footer{
 </style>
 </head>
 <body>
+
+<figure class="hero">
+  <img src="slow-cooker-poached-chicken-rolls.jpg" alt="A chicken salad sandwich cut in half, filled with shredded chicken, herbs, and lettuce." width="1600" height="1280" loading="eager">
+  <figcaption>Photo: <a href="https://commons.wikimedia.org/wiki/File:Chicken_salad_sandwich_01.jpg">Lara604</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></figcaption>
+</figure>
 
 <header class="masthead shell">
   <p class="eyebrow">Slow cooker · Serves 6 · Served cool</p>

@@ -25,8 +25,9 @@ page — `exclude` only keeps Jekyll's hands off it.
 
 GitHub Pages serves this repo from `main`, root folder, with Jekyll enabled.
 
-- One self-contained `.html` file per recipe, in the root. No assets, no build
-  step. Fonts come from the Google Fonts CDN; everything else is inline.
+- One `.html` file per recipe, in the root, plus an optional `.jpg` photo of
+  the same basename. Fonts come from the Google Fonts CDN; everything else
+  (CSS, JSON-LD) is inline in the HTML.
 - Filenames are kebab-case and become part of the URL:
   `slow-cooker-lamb-shoulder-rolls.html`
 - `index.md` generates the recipe list automatically. Adding a recipe never
@@ -93,6 +94,30 @@ Once every file has front matter, delete it.
 
 `relative_url` is required on every link. The site is served from `/recipes/`,
 not the domain root, so a bare path generates a broken link.
+
+## Recipe photos
+
+Each recipe can have a `<basename>.jpg` sitting next to its `.html`, e.g.
+`slow-cooker-lamb-shoulder-rolls.jpg`. Wire it up in three places:
+
+- `og:image` meta tag in `<head>`, absolute URL.
+- `"image"` field in the JSON-LD `Recipe` block, same absolute URL. This is
+  what MealBoard actually reads.
+- A `<figure class="hero">` at the top of `<body>`, with an `<img>` and a
+  `<figcaption>` crediting the photographer and license.
+
+Source photos from something with a clear, reusable license — Wikimedia
+Commons (CC0 / CC-BY / CC-BY-SA) is the easiest to check and credit. Resize to
+1600px wide and strip EXIF/GPS before committing:
+
+```
+magick source.jpg -auto-orient -strip -resize 1600x -quality 80 \
+  -sampling-factor 4:2:0 -interlace JPEG <basename>.jpg
+```
+
+Use an absolute `https://huntit.github.io/recipes/...` URL, not a relative
+path or a data URI — MealBoard (and most recipe importers) fetch the image
+URL with a separate request rather than reading embedded image data.
 
 ## MealBoard import
 
